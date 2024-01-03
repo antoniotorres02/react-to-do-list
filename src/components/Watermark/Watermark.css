@@ -1,0 +1,65 @@
+.watermark_container {
+    position: absolute;
+    top: 10px;
+    width: 400px;     
+    left: -350px;
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(255, 255, 255);
+    align-items: center;
+    justify-content: center;
+    border: 1px solid rgb(201, 201, 201);
+    border-radius: 20px;
+    padding: 20px;
+    padding-right: 50px;
+    gap: 10px;
+    z-index: 1000;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    transition: all 1s ease-in-out;
+}
+
+.watermark_container:hover {
+    transition: all 0.5s ease-in-out;
+    width: 300px;
+    padding-right: 20px;
+    left: 10px;
+}
+
+
+.watermark_container h2 {
+    font-size: 1.2rem;
+    font-weight: 400;
+    color: gray;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+
+.watermark_container a {
+    font-size: 0.8rem;
+    font-weight: 400;
+    color: gray;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    cursor: pointer;
+}
+
+
+.watermark_links_containers {
+    display: flex;
+    flex-direction: row;
+    gap : 10px;
+}
+
+.watermark_link_icon {
+    height: 40px;
+    filter: grayscale(100%);
+    opacity: 0.5;
+    transition: all 0.2s ease-in-out;
+}
+
+.watermark_link_icon:hover {
+    filter: grayscale(0%);
+    opacity: 1;
+}

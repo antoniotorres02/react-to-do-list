@@ -4,12 +4,13 @@ import React from "react";
 
 interface MenuProps {
   addTask: (newTask: Task) => void;
+  taskIndex?: number;
 }
 
 export default function Menu(props: MenuProps) {
 
   const [task, setTask] = React.useState<Task>({
-    id: 0,
+    id: props.taskIndex ?? 0,
     title: "",
     description: "",
     date: new Date(),
@@ -17,9 +18,13 @@ export default function Menu(props: MenuProps) {
   });
 
   const handleAddTask = () => {
+
+    if (task.title === "") {
+      return;
+    }
     props.addTask(task);
     setTask({
-      id: 0,
+      id: props.taskIndex ?? 0,
       title: "",
       description: "",
       date: new Date(),

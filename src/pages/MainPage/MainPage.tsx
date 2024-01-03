@@ -5,26 +5,35 @@ import TaskComponent from "../../components/TaskComponent/TaskComponent";
 import { Task } from "../../interface/Task";
 
 export default function MainPage() {
-  const [taskList, setTaskList] = React.useState<Task[]>([]);
-
-  React.useEffect(() => {
+  const [taskList, setTaskList] = React.useState<Task[]>(() => {
     const tasks = localStorage.getItem("tasks");
-    if (tasks) {
-      setTaskList(JSON.parse(tasks));
-    }
-  }, []);
+    return tasks ? JSON.parse(tasks) : [];
+  });
+
+  
+  React.useEffect(() => {
+    // Supongamos que `taskList` es tu lista de tareas
+    localStorage.setItem("tasks", JSON.stringify(taskList));
+  }, [taskList]); // Ejecuta este efecto cada vez que `taskList` cambia
+  
+
 
   const addTask = (newTask: Task) => {
+    newTask.id = taskList.length;
     setTaskList([...taskList, newTask]);
   };
+
+  const deleteTask = (id: number) => {
+    const newTaskList = taskList.filter((task) => task.id !== id);
+    setTaskList(newTaskList);
+  }
 
   return (
     <>
       <main className="td_page_container">
         <div className="td_menu_container">
-          <Menu addTask={addTask} />
+          <Menu addTask={addTask} taskIndex={taskList.length} />
         </div>
-
         <div className="td_tasks_grid">
           {taskList.length === 0 && (
             <div className="td_no_tasks">
@@ -41,6 +50,7 @@ export default function MainPage() {
                 description={task.description}
                 date={task.date}
                 done={task.done}
+                deleteTask={deleteTask}
               />
             );
           })}

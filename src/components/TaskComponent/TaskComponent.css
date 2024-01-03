@@ -1,3 +1,4 @@
+
 .td_task_container {
     background-color: white;
     border-radius: 10px;
@@ -8,6 +9,8 @@
     gap: 10px;
     border: 1px solid #e0e0e0;
     word-wrap: break-word;
+    cursor: default;
+    
 }
 
 
@@ -24,73 +27,40 @@
 }
 
 .td_task_date {
-    font-size: 1.5rem;
+    font-size: 1.3rem;
     display: inline;
     color: gray;
     width: 100%;
     text-align: right;
+    transition: color 0.5s;
+    cursor:default;
 }
 
-.td_task_folding_footer {
+.td_task_date:hover {
+    color: black;
+}
+
+.td_task_button_div {
     display: flex;
     flex-direction: row;
-    justify-content: end;
-    align-items: center;
-    gap: 10px;
-    background-color: rgba(192, 192, 192, 0.233);
-    padding: 10px;
-    transform-origin: top;
-    transition: all 0.3s ease-in-out;
-    transform: scaleY(1);
-    height: auto;
+    gap: 2px;
+    background-color: #e0e0e0;
 }
 
-.td_task_folding_footer.collapsed {
-    transform: scaleY(0);
-    height: 0;
-  }
-
-
-.td_task_fold_button {
-    background-color: transparent;
+.td_task_button {
     border: none;
-    cursor: pointer;
-    font-family: 'Roboto', sans-serif;
-    font-size: 1rem;
-    font-weight: bold;
-    color: rgba(0, 0, 0, 0.555);
-    transition: all 0.3s ease-in-out;
-
-}
-
-.td_task_folding_footer button {
     padding: 10px;
-    border-radius: 10px;
-    cursor: pointer;
-    font-family: 'Roboto', sans-serif;
+    width: 100%;
+    background: transparent;
     font-size: 1rem;
     font-weight: bold;
-    color: white;
-    transition: all 0.3s ease-in-out;
-}
-
-.td_task_folding_footer button:hover {
-    background-color: transparent;
-    color: rgba(0, 0, 0, 0.555);
+    cursor: pointer;
+    transition: 0.2s;
+    background: white
 }
 
 
-.td_task_completed_button {
-    background-color: rgb(0, 255, 0); 
-    border: 2px solid rgb(0, 255, 0);
-}
-
-.td_task_delete_button {
-    background-color: rgb(255, 0, 0); 
-    border: 2px solid rgb(255, 0, 0);
-}
-
-.td_task_edit_button {
-    background-color: rgb(0, 0, 255); 
-    border: 2px solid rgb(0, 0, 255);
+.td_task_button:hover {
+    background-color: #e0e0e0;
+    width: 130%;
 }

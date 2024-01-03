@@ -17,6 +17,6 @@ body {
   justify-content: center;
   background: url(./assets/background.png) center center fixed;
   /*make background less black, lighter*/
-  backdrop-filter: contrast(0.1) brightness(1.7);
+  backdrop-filter: contrast(0.05) brightness(2) saturate(0.5) blur(2px);
 }
 
