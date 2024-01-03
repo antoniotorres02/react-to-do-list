@@ -5,6 +5,8 @@ import { Task } from '../../interface/Task'
 
 export default function TaskComponent(props: Task) {
 
+  const date : Date = new Date(props.date)
+
   return (
     <>
     <div className='td_task_container'>
@@ -12,7 +14,7 @@ export default function TaskComponent(props: Task) {
         <h1 className='td_task_name'>{props.title}</h1>
         <p className='td_task_desc'>{props.description}</p>
       </div>
-      <p className='td_task_date'>{props.date.getDay()}</p>
+      <p className='td_task_date'>{(date.getDay() + "/" + (date.getMonth() + 1) + "/" + date.getFullYear())}</p>
     </div>
     </>
   )
